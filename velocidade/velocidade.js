@@ -6,22 +6,17 @@ const form = document.querySelector("h3")
 form.addEventListener("submit" , (e) =>{
     e.preventDefault()
 
-    const nome = form.inNome.value
-    const altura = Number (form.inAltura.value)
+   const permitida = Number(form.inPermitida.value)
+   const condutor = Number(form.inCondutor.value)
+   let leve = permitida + (permitida * 0.2)
 
-    //calculando o peso ideal
-    let pesoif
-    if (masculino) {
-        peso = 22 * Math.pow(altura, 2)
-} else {
-    peso = 21 * Math.pow(altura, 2)
-}
-//apresenta a resposta
-Resp.innerText = `${nome} seu peso ideal é: ${peso.toFixed(3)}kg`
-})
-//segundo ouvinte. limpa o conteúdo de h3
+   if(condutor <= permitda){
+    resp.innerText = `Situação Sem Multa`
 
-form.addEventListener("reset" , (e) => {
-    resp.innerText = " " //limpa o conteúdo de h3
+   }else if(condutor <= leve) {
+    resp.innerText = `Situação Multa leve`
 
-})
+   }else {
+    resp.innerText = `Situação Multa Grave`
+   }
+   })
